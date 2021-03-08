@@ -1,14 +1,19 @@
-import re
-
+with open('values.txt') as f:
+   count = sum(1 for _ in f)
 f = open('values.txt', 'r+')
-string = f.read()
+b = True
+list = []
+for i in range(count):
+		st = f.readline().split()
+		stt = []
+		try:
+			if st[1].find('KEY_')!=-1:
+				stt.append(st[1])
+				stt.append(st[2])
+		except:
+			pass
+		if stt:
+			list.append(stt)
 f.close()
-
-while True:
-	if '#define' is in string:
-		
-
-'''for i in range(len(string)):
-	if (string[i] == '/') and (string[i+1] == '*'):
-		while (string[i] != '*') and (string[i+1] != '/'):
-			del(string[i])'''
+for i in range(len(list)):
+	print(list[i][0], list[i][1])
