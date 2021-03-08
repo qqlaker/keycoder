@@ -7,22 +7,25 @@ def make_bitseq(s: str) -> str:
 
 def make_str(out):
     revert = ''.join([chr(int(s, 2)) for s in out.split()])
-    print(revert)
+    return revert
 
 s = ''
 
-
+# Reading config
 for i in range(1, len(keys)+1):
 	s += keys['{}'.format(i)].strip()
 	s += ' '
-print(s)
+string = make_bitseq(s)
 
+# Str -> bit
+string = make_bitseq(s)
 
-#Str -> bit
-#string = make_bitseq(s)
-
-#Writing bit in bin file
-#f = open('key.bin', 'wb')
-#f.write(string)
-#f.close()
+# Writing bit in bin file
+f = open('key.bin', 'w+')
+try:
+	f.write(string)
+	print('Complete')
+except:
+	print('Unexpected error')
+f.close()
 
