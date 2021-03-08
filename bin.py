@@ -13,14 +13,16 @@ s = ''
 
 
 for i in range(1, len(keys)+1):
-
+	s += keys['{}'.format(i)].strip()
+	s += ' '
+print(s)
 
 
 #Str -> bit
-string = make_bitseq(s)
+#string = make_bitseq(s)
 
 #Writing bit in bin file
-f = open('key.bin', 'wb')
-f.write(string)
-f.close()
+#f = open('key.bin', 'wb')
+#f.write(string)
+#f.close()
 
